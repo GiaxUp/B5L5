@@ -21,25 +21,25 @@ public class EdificioService {
 
 	public void creaFakeEdificio() {
 
-		Edificio E = fakeEdificioProvider.getObject();
-		inserisciEdificio(E);
+		Edificio e1 = fakeEdificioProvider.getObject();
+		inserisciEdificio(e1);
 	}
 	public void creaNuovoEdificio() {
-		Edificio E = nuovoEdificioProvider.getObject();
-		inserisciEdificio(E);
+		Edificio e1 = nuovoEdificioProvider.getObject();
+		inserisciEdificio(e1);
 	}
 
 	
-	public void inserisciEdificio(Edificio e) {
-		repo.save(e);
+	public void inserisciEdificio(Edificio e0) {
+		repo.save(e0);
 	}
-	public void rimuoviEdificio(Edificio e) {
-		repo.delete(e);
+	public void rimuoviEdificio(Edificio e0) {
+		repo.delete(e0);
 
 	}
 	
-	public void aggiornaEdificio(Edificio e) {
-		repo.save(e);
+	public void aggiornaEdificio(Edificio e0) {
+		repo.save(e0);
 		
 	}
 	public Edificio findUtenteById(Long id) {

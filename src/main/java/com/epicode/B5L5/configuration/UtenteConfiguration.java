@@ -17,11 +17,11 @@ public class UtenteConfiguration {
 	@Scope("prototype")
 	public Utente fakeUtente() {
 		Faker fake = Faker.instance(Locale.of("it"));
-		Utente U = new Utente();
-		U.setUsername(fake.internet().domainName());
-		U.setNominativo(fake.name().fullName());
-		U.setEmail(U.getNominativo() + "@example.com");
-		return U;
+		Utente u1 = new Utente();
+		u1.setUsername(fake.internet().domainName());
+		u1.setNominativo(fake.name().fullName());
+		u1.setEmail(u1.getNominativo() + "@example.com");
+		return u1;
 	}
 	
 	@Bean("CustomUtente")
@@ -32,8 +32,8 @@ public class UtenteConfiguration {
 	
 	@Bean("ParamsUser")
 	@Scope("prototype")
-	public Utente paramsUser (String user, String nomin, String email) {
-		return new Utente(user, nomin, email);
+	public Utente paramsUser (String user, String nominativo, String email) {
+		return new Utente(user, nominativo, email);
 	}
 	
 
