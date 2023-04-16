@@ -27,23 +27,20 @@ public class Postazione {
 	private String descrizione;
 	@Column
 	@Enumerated(EnumType.STRING)
-	private TipoPostazione tipo_postazione;
+	private TipoPostazione tipopostazione;
 	@Column(nullable = false)
-	private int num_max_partecipanti;
-	@Column(nullable = false)
-	@JoinColumn(name="postazione_edificio")
+	private int nummaxpartecipanti;
 	@ManyToOne
+	@JoinColumn(name="id_edificio")
 	private Edificio edificio;
-	@ManyToOne
-	private Prenotazione prenotazione;
-	public Postazione(String descrizione, TipoPostazione tipo_postazione, int num_max_partecipanti, Edificio edificio,
-			Prenotazione prenotazione) {
+	
+	public Postazione(String descrizione, TipoPostazione tipo_postazione, 
+			int num_max_partecipanti, Edificio edificio) {
 		super();
 		this.descrizione = descrizione;
-		this.tipo_postazione = tipo_postazione;
-		this.num_max_partecipanti = num_max_partecipanti;
+		this.tipopostazione = tipo_postazione;
+		this.nummaxpartecipanti = num_max_partecipanti;
 		this.edificio = edificio;
-		this.prenotazione = prenotazione;
 	}
 
 	
