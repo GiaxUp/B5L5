@@ -12,8 +12,11 @@ import com.epicode.B5L5.model.Postazione;
 import com.epicode.B5L5.model.Prenotazione;
 import com.epicode.B5L5.model.Utente;
 import com.epicode.B5L5.repository.PrenotazioneDAORepo;
+import com.epicode.B5L5.runner.Runner;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class PrenotazioneService {
 
 	@Autowired
@@ -29,7 +32,15 @@ public class PrenotazioneService {
 	}
 
 	public void inserisciPrenotazione(Prenotazione p) {
+		List<Prenotazione> listaUtenti = findByUtenteData(p.getUtente(), p.getDataprenotazione());
+		List<Prenotazione> listaPostazioni = findByPostazioneData(p.getPostazione(), p.getDataprenotazione());
+		if(listaUtenti.size() > 0) {
+			log.info("Data già prenotata. Selezionane un'altra.");
+		} else if (listaPostazioni.size() > 0) {
+			log.info("La postazione non è disponibile. Selezionane un'altra.");
+		} else {
 		repo.save(p);
+		}
 	}
 
 	public void rimuoviPrenotazione(Prenotazione p) {

@@ -39,9 +39,6 @@ public class Runner implements CommandLineRunner {
 		// "giacomo.dellaperuta@example.com");
 		// Utente_S.creaFakeUtente();
 
-		// CREAZIONE EDIFICIO
-//		Edificio_S.creaFakeEdificio();
-//
 //		for (int i = 0; i < 10; i++) {
 //			Utente_S.creaFakeUtente();
 //		}
@@ -90,6 +87,14 @@ public class Runner implements CommandLineRunner {
 //		Prenotazione_S.creaPrenotazione(u4, p2, LocalDate.of(2023, 6, 4));
 //		Prenotazione_S.creaPrenotazione(u1, p5, LocalDate.of(2023, 5, 2));
 //		Prenotazione_S.creaPrenotazione(u5, p6, LocalDate.of(2023, 7, 9));
+		
+		// CHECK STESSO UTENTE CHE NON PUÒ PRENOTARE LO STESSO GIORNO (tutto ok)
+//		Prenotazione_S.creaPrenotazione(u1, p5, LocalDate.of(2023, 5, 2));
+//		Prenotazione_S.creaPrenotazione(u5, p6, LocalDate.of(2023, 7, 9));
+				
+		
+		// CHECK PRENOTAZIONE CHE NON SI PUÒ FARE NELLA STESSA POSTAZIONE
+//		Prenotazione_S.creaPrenotazione(u2, p5, LocalDate.of(2023, 5, 2));
 	}
 
 }
